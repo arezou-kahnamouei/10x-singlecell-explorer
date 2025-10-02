@@ -1,0 +1,19 @@
+name: seurat_app
+channels: [conda-forge, bioconda, defaults]
+dependencies:
+  - r-base=4.4
+  - r-seurat
+  - r-dt
+  - r-bslib
+  - r-tidyverse
+  - r-matrix
+  - r-reshape2
+  - r-pheatmap
+  - r-openxlsx
+  - r-readxl
+  - r-stringr
+  - r-ggrepel
+  - bioconductor-annotationdbi
+  - bioconductor-org.hs.eg.db
+  - bioconductor-org.mm.eg.db
+  - r-hgnchelper
