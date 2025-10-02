@@ -378,7 +378,9 @@ server <- function(input, output, session) {
       }
       
       incProgress(0.25, detail = "QC & Normalize")
-      so[["percent.mt"]] <- PercentageFeatureSet(so, pattern = "^MT-")
+     mt_pat <- if (any(grepl("^mt-", rownames(so)))) "^mt-" else "^MT-"
+     so[["percent.mt"]] <- PercentageFeatureSet(so, pattern = mt_pat)
+
       so <- subset(so, subset = nFeature_RNA >= input$minfeat & nFeature_RNA <= input$maxfeat & percent.mt <= input$maxmt)
       so <- NormalizeData(so)
       so <- FindVariableFeatures(so, selection.method = "vst", nfeatures = 2000)
